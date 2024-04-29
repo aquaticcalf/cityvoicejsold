@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { useState } from "react"
 
-const Option = (props) => {
-    const updateOption = props.updateOption || (() => { });
-    const opt = "Option " + props.index;
-    const [optionValue, setOptionValue] = useState("");
+const Option = ({ index, updateOption = () => {} }) => {
+    const [optionValue, setOptionValue] = useState("")
 
     const handleChange = (event) => {
-        setOptionValue(event.target.value);
-        props.updateOption(props.index, event.target.value); // Pass complete value
-    };
+        setOptionValue(event.target.value)
+        updateOption(index, event.target.value)
+    }
 
     return (
-        <>
-            <input className="rounded-[100px] p-2" type="text" name={opt} placeholder={opt} value={optionValue} onChange={handleChange} />
-        </>
-    );
+        <input className="rounded-[100px] p-2" type="text" name={`Option ${index}`} placeholder={`Option ${index}`} value={optionValue} onChange={handleChange} />
+    )
 }
 
-export default Option;
+export default Option

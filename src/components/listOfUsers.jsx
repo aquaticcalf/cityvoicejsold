@@ -1,29 +1,22 @@
 import Dummy from '../assets/Dummy.png'
 
-const ListOfUsers = (props) => {
+const UserItem = ({ user, tagUser }) => (
+    <div onClick={() => tagUser(user.name)} className="flex gap-2 p-2 border-2 border-slate-900 m-2 bg-slate-700 text-slate-300 hover:bg-slate-900 cursor-pointer">
+        <img src={user.photo?? Dummy} alt="" className="w-[1.5em] rounded-[50%]"/>
+        {user.name?? user.err}
+    </div>
+)
 
-    const list = props.list;
-
+const ListOfUsers = ({ list, setTag, setSearchResults }) => {
     const tagUser = (username) => {
-        props.setTag(username);
-        props.setSearchResults([]);
+        setTag(username)
+        setSearchResults([])
     }
 
     return (
         <div className="w-full rounded">
-            {list && list.map((user, index) => (
-                <div key={index} onClick={()=>{tagUser(user.name)}} className="flex gap-2 p-2 border-2 border-slate-900 m-2 bg-slate-700 text-slate-300 hover:bg-slate-900 cursor-pointer">
-                    {user.name ?(
-                    <>
-                        <img src={user.photo || Dummy} alt="" className="w-[1.5em] rounded-[50%]"/>
-                        {user.name}
-                    </> 
-                    ):(
-                        <>
-                            {user.err}
-                        </> 
-                    )}
-                </div>
+            {list?.map((user, index) => (
+                <UserItem key={index} user={user} tagUser={tagUser} />
             ))}
         </div>
     )

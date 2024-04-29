@@ -7,7 +7,7 @@ const MiddleHome = () => {
     const [isCreating, setIsCreating] = useState(false);
 
     return (
-        <div className="w-full p-2"> 
+        <div className="w-full p-2">
             {isCreating ? (
                 <CreatePost setIsCreating={setIsCreating} />
             ) : (

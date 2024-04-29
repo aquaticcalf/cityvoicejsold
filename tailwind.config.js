@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    colors: {
+      cityvoice: {
+        blue: '#3498db',
+        yellow: '#f7dc6f',
+        red: '#e74c3c',
+        gray: '#f2f2f2',
+        dark: '#333333',
+        green: '#8bc34a',
+      },
+    },
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
