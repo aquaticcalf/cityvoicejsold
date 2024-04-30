@@ -1,5 +1,6 @@
 import Feednav from "./feednav.jsx"
 import Actionbutton from "./actionbutton.jsx"
+import Solidbutton from "../ui/solidbutton.jsx"
 
 function Middle() {
 
