@@ -1,6 +1,6 @@
 function Feednav() {
   return(
-    <div className="bg-[#0047FF] w-full h-[55px] bg-opacity-45">
+    <div className="bg-[#0047FF] sticky top-0 w-full h-[55px]">
     </div>
   )
 }
